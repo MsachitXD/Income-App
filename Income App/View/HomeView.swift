@@ -9,14 +9,65 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var transactions: [Transaction] = [
-        Transaction(title: "Apple", type: .expense, amount: 5.00, date: Date()),
-        Transaction(title: "Samsung", type: .expense, amount: 10.00, date: Date())
-    ]
+    @State private var transactions: [Transaction] = []
+    @State private var showAddTransactionView = false
+    @State private var transactionToEdit: Transaction?
+    
+   private var expenses : String {
+       let sumExpenses = transactions.filter({ $0.type == .expense }).reduce(0, { $0 + $1.amount})
+//        for transaction in transactions {
+//            if transaction.type == .expense {
+//                sumExpenses += transaction.amount
+//            }
+//        }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        return numberFormatter.string(from: sumExpenses as NSNumber) ?? "₹0.00"
+    }
+    
+    private var income : String {
+        let sumIncome = transactions.filter({ $0.type == .income }).reduce(0, { $0 + $1.amount})
+//        for transaction in transactions {
+//            if transaction.type == .expense {
+//                sumIncome += transaction.amount
+//            }
+//        }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        return numberFormatter.string(from: sumIncome as NSNumber) ?? "₹0.00"
+    }
+    
+    private var total : String {
+        let sumExpenses = transactions.filter({ $0.type == .expense }).reduce(0, { $0 + $1.amount})
+        let sumIncome = transactions.filter({ $0.type == .income }).reduce(0, { $0 + $1.amount})
+        let total = sumIncome - sumExpenses
+//        for transaction in transactions {
+//            switch transaction.type {
+//            case .income:
+//                total += transaction.amount
+//            case .expense:
+//                total -= transaction.amount
+//            }
+//        }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        return numberFormatter.string(from: total as NSNumber) ?? "₹0.00"
+    }
     
     fileprivate func FLoatingButton() -> some View {
         VStack{
-            
+            Spacer()
+            NavigationLink{
+                AddTransactionView(transactions: $transactions)
+            } label: {
+                Text("+")
+                    .font(.largeTitle)
+                    .frame(width: 70, height: 70)
+                    .foregroundColor(Color.white)
+                    .padding(.bottom, 7)
+            }
+            .background(.primaryLightGreen)
+            .clipShape(Circle())
         }
     }
     
@@ -26,11 +77,11 @@ struct HomeView: View {
                 .fill(Color.primaryLightGreen)
             VStack(alignment: .leading, spacing: 8){
                 HStack {
-                    VStack{
+                    VStack(alignment: .leading){
                         Text("BALANCE")
                             .font(.caption)
                             .foregroundColor(Color.white)
-                        Text("₹2")
+                        Text("\(total)")
                             .font(.system(size: 42, weight: .light))
                             .foregroundColor(Color.white)
                     }
@@ -42,7 +93,7 @@ struct HomeView: View {
                         Text("Expense")
                             .font(.system(size: 15 ,weight: .semibold))
                             .foregroundColor(Color.white)
-                        Text("₹22")
+                        Text("\(expenses)")
                             .font(.system(size: 15 ,weight: .regular))
                             .foregroundColor(Color.white)
                     }
@@ -50,7 +101,7 @@ struct HomeView: View {
                         Text("Income")
                             .font(.system(size: 15 ,weight: .semibold))
                             .foregroundColor(Color.white)
-                        Text("₹22")
+                        Text("\(income)")
                             .font(.system(size: 15 ,weight: .regular))
                             .foregroundColor(Color.white)
                     }
@@ -65,15 +116,47 @@ struct HomeView: View {
     }
     
     var body: some View {
-        VStack{
-            BalanceView()
-            List{
-                ForEach(transactions) { transaction in
-                    TransactionView(transaction: transaction)
+        NavigationStack {
+            ZStack {
+                VStack{
+                    BalanceView()
+                    List{
+                        ForEach(transactions) { transaction in
+                            Button(action: {
+                                transactionToEdit = transaction
+                            }, label: {
+                                TransactionView(transaction: transaction)
+                                    .foregroundColor(.black)
+                            })
+                        }
+                        .onDelete(perform: delete)
+                    }
+                    .scrollContentBackground(.hidden)
+                }
+                FLoatingButton()
+            }
+            .navigationTitle("Income")
+            .navigationDestination(item: $transactionToEdit, destination: { transactionToEdit in
+                AddTransactionView(transactions: $transactions, transactionToEdit: transactionToEdit)
+            })
+            .navigationDestination(isPresented: $showAddTransactionView, destination: {
+                AddTransactionView(transactions: $transactions)
+            })
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing){
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundColor(Color.black)
+                    })
                 }
             }
-            .scrollContentBackground(.hidden)
         }
+    }
+    
+    private func delete(at offset: IndexSet) {
+        transactions.remove(atOffsets: offset)
     }
 }
 

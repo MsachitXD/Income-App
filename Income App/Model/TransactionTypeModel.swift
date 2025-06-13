@@ -5,14 +5,18 @@
 //  Created by Sachit Mittal on 12/06/25.
 //
 
-import SwiftUI
+import Foundation
 
-struct TransactionTypeModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+enum TransactionType: String, CaseIterable, Identifiable {
+    case income, expense
+    var id: Self { self }
+    
+    var title: String {
+        switch self {
+        case .income:
+            return "Income"
+        case .expense:
+            return "Expense"
+        }
     }
-}
-
-#Preview {
-    TransactionTypeModel()
 }
