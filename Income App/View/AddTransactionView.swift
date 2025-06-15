@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddTransactionView: View {
-    
     @State private var amount = 0.0
     @State private var transactionTitle = ""
     @State private var selectedTransactionType: TransactionType = .expense
@@ -18,15 +17,18 @@ struct AddTransactionView: View {
     @Binding var transactions: [Transaction]
     var transactionToEdit: Transaction?
     @Environment(\.dismiss) var dismiss
-        
+    
+    @AppStorage("currency") var currency = Currency.inr
+    
     var numberFormatter: NumberFormatter {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
+        numberFormatter.locale = currency.locale
         return numberFormatter
     }
     
     var body: some View {
-        VStack{
+        VStack {
             TextField("0.00", value: $amount, formatter: numberFormatter)
                 .font(.system(size: 60, weight: .thin))
                 .multilineTextAlignment(.center)
@@ -34,9 +36,8 @@ struct AddTransactionView: View {
             Rectangle()
                 .fill(Color(uiColor: UIColor.lightGray))
                 .frame(height: 0.5)
-                .padding(.horizontal)
-            
-            Picker("Choose Type", selection: $selectedTransactionType){
+                .padding(.horizontal, 30)
+            Picker("Choose Type", selection: $selectedTransactionType) {
                 ForEach(TransactionType.allCases) { transactionType in
                     Text(transactionType.title)
                         .tag(transactionType)
@@ -54,32 +55,34 @@ struct AddTransactionView: View {
                     showAlert = true
                     return
                 }
+                //correction here. When editing the last date should be used
+//                let transaction = Transaction(title: transactionTitle, type: selectedTransactionType, amount: amount, date: Date())
                 
-                let transaction = Transaction(
-                    title: transactionTitle, type: selectedTransactionType, amount: amount, date: Date())
-                
-                if let transactionToEdit = transactionToEdit{
+                if let transactionToEdit = transactionToEdit {
                     guard let indexOfTransaction = transactions.firstIndex(of: transactionToEdit) else {
                         alertTitle = "Something went wrong"
-                        alertTitle = "Cannot update this transaction right now."
+                        alertMessage = "Cannot update this transaction right now."
                         showAlert = true
                         return
                     }
+                    let transaction = Transaction(title: transactionTitle, type: selectedTransactionType, amount: amount, date: transactionToEdit.date)
                     transactions[indexOfTransaction] = transaction
                 } else {
+                    let transaction = Transaction(title: transactionTitle, type: selectedTransactionType, amount: amount, date: Date())
                     transactions.append(transaction)
                 }
                 
                 dismiss()
                 
             }, label: {
-                Text(transactionToEdit == nil ?"Create" : "Update")
+                Text(transactionToEdit == nil ? "Create" : "Update")
                     .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(Color.white)
+                    .foregroundStyle(Color.white)
                     .frame(height: 40)
                     .frame(maxWidth: .infinity)
                     .background(Color.primaryLightGreen)
                     .clipShape(RoundedRectangle(cornerRadius: 6))
+                    
             })
             .padding(.top)
             .padding(.horizontal, 30)
@@ -102,6 +105,7 @@ struct AddTransactionView: View {
         } message: {
             Text(alertMessage)
         }
+
     }
 }
 

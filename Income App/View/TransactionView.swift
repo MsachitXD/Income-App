@@ -9,27 +9,30 @@ import SwiftUI
 
 struct TransactionView: View {
     let transaction: Transaction
+    @AppStorage("currency") var currency = Currency.inr
+    
     var body: some View {
         VStack {
-            HStack{
+            HStack {
                 Spacer()
                 Text(transaction.displayDate)
                     .font(.system(size: 14))
                 Spacer()
+                
             }
             .padding(.vertical, 5)
             .background(Color.lightGrayShade.opacity(0.5))
             .clipShape(RoundedRectangle(cornerRadius: 5))
-            HStack{
+            HStack {
                 Image(systemName: transaction.type == .income ? "arrow.up.forward" : "arrow.down.forward")
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(transaction.type == .income ? Color.green : Color.red)
-                VStack(alignment: .leading, spacing: 5){
-                    HStack{
+                    .foregroundStyle(transaction.type == .income ? Color.green : Color.red)
+                VStack(alignment: .leading, spacing: 5) {
+                    HStack {
                         Text(transaction.title)
                             .font(.system(size: 15, weight: .bold))
                         Spacer()
-                        Text(String(transaction.displayAmount))
+                        Text(transaction.display(currency: currency))
                             .font(.system(size: 15, weight: .bold))
                     }
                     Text("Completed")
@@ -40,7 +43,6 @@ struct TransactionView: View {
         .listRowSeparator(.hidden)
     }
 }
-
 
 #Preview {
     TransactionView(transaction: Transaction(title: "Apple", type: .expense, amount: 5.00, date: Date()))

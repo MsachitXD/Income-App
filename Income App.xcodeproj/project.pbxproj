@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8836A3072DFB3C6D00BFBDF7 /* IncomeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IncomeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8836A3142DFB3C6E00BFBDF7 /* IncomeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncomeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8836A31E2DFB3C6E00BFBDF7 /* IncomeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncomeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8836A3072DFB3C6D00BFBDF7 /* Income App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Income App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8836A3142DFB3C6E00BFBDF7 /* Income AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Income AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8836A31E2DFB3C6E00BFBDF7 /* Income AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Income AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -85,9 +85,9 @@
 		8836A3082DFB3C6D00BFBDF7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8836A3072DFB3C6D00BFBDF7 /* IncomeApp.app */,
-				8836A3142DFB3C6E00BFBDF7 /* IncomeAppTests.xctest */,
-				8836A31E2DFB3C6E00BFBDF7 /* IncomeAppUITests.xctest */,
+				8836A3072DFB3C6D00BFBDF7 /* Income App.app */,
+				8836A3142DFB3C6E00BFBDF7 /* Income AppTests.xctest */,
+				8836A31E2DFB3C6E00BFBDF7 /* Income AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8836A3062DFB3C6D00BFBDF7 /* IncomeApp */ = {
+		8836A3062DFB3C6D00BFBDF7 /* Income App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8836A3282DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "IncomeApp" */;
+			buildConfigurationList = 8836A3282DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "Income App" */;
 			buildPhases = (
 				8836A3032DFB3C6D00BFBDF7 /* Sources */,
 				8836A3042DFB3C6D00BFBDF7 /* Frameworks */,
@@ -110,16 +110,16 @@
 			fileSystemSynchronizedGroups = (
 				8836A3092DFB3C6D00BFBDF7 /* Income App */,
 			);
-			name = IncomeApp;
+			name = "Income App";
 			packageProductDependencies = (
 			);
 			productName = "Income App";
-			productReference = 8836A3072DFB3C6D00BFBDF7 /* IncomeApp.app */;
+			productReference = 8836A3072DFB3C6D00BFBDF7 /* Income App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8836A3132DFB3C6E00BFBDF7 /* IncomeAppTests */ = {
+		8836A3132DFB3C6E00BFBDF7 /* Income AppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8836A32B2DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "IncomeAppTests" */;
+			buildConfigurationList = 8836A32B2DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "Income AppTests" */;
 			buildPhases = (
 				8836A3102DFB3C6E00BFBDF7 /* Sources */,
 				8836A3112DFB3C6E00BFBDF7 /* Frameworks */,
@@ -133,16 +133,16 @@
 			fileSystemSynchronizedGroups = (
 				8836A3172DFB3C6E00BFBDF7 /* Income AppTests */,
 			);
-			name = IncomeAppTests;
+			name = "Income AppTests";
 			packageProductDependencies = (
 			);
 			productName = "Income AppTests";
-			productReference = 8836A3142DFB3C6E00BFBDF7 /* IncomeAppTests.xctest */;
+			productReference = 8836A3142DFB3C6E00BFBDF7 /* Income AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8836A31D2DFB3C6E00BFBDF7 /* IncomeAppUITests */ = {
+		8836A31D2DFB3C6E00BFBDF7 /* Income AppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8836A32E2DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "IncomeAppUITests" */;
+			buildConfigurationList = 8836A32E2DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "Income AppUITests" */;
 			buildPhases = (
 				8836A31A2DFB3C6E00BFBDF7 /* Sources */,
 				8836A31B2DFB3C6E00BFBDF7 /* Frameworks */,
@@ -156,11 +156,11 @@
 			fileSystemSynchronizedGroups = (
 				8836A3212DFB3C6E00BFBDF7 /* Income AppUITests */,
 			);
-			name = IncomeAppUITests;
+			name = "Income AppUITests";
 			packageProductDependencies = (
 			);
 			productName = "Income AppUITests";
-			productReference = 8836A31E2DFB3C6E00BFBDF7 /* IncomeAppUITests.xctest */;
+			productReference = 8836A31E2DFB3C6E00BFBDF7 /* Income AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8836A3022DFB3C6D00BFBDF7 /* Build configuration list for PBXProject "IncomeApp" */;
+			buildConfigurationList = 8836A3022DFB3C6D00BFBDF7 /* Build configuration list for PBXProject "Income App" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8836A3062DFB3C6D00BFBDF7 /* IncomeApp */,
-				8836A3132DFB3C6E00BFBDF7 /* IncomeAppTests */,
-				8836A31D2DFB3C6E00BFBDF7 /* IncomeAppUITests */,
+				8836A3062DFB3C6D00BFBDF7 /* Income App */,
+				8836A3132DFB3C6E00BFBDF7 /* Income AppTests */,
+				8836A31D2DFB3C6E00BFBDF7 /* Income AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		8836A3162DFB3C6E00BFBDF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8836A3062DFB3C6D00BFBDF7 /* IncomeApp */;
+			target = 8836A3062DFB3C6D00BFBDF7 /* Income App */;
 			targetProxy = 8836A3152DFB3C6E00BFBDF7 /* PBXContainerItemProxy */;
 		};
 		8836A3202DFB3C6E00BFBDF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8836A3062DFB3C6D00BFBDF7 /* IncomeApp */;
+			target = 8836A3062DFB3C6D00BFBDF7 /* Income App */;
 			targetProxy = 8836A31F2DFB3C6E00BFBDF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -456,7 +456,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IncomeApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IncomeApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Income App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Income App";
 			};
 			name = Debug;
 		};
@@ -474,7 +474,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IncomeApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IncomeApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Income App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Income App";
 			};
 			name = Release;
 		};
@@ -513,7 +513,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8836A3022DFB3C6D00BFBDF7 /* Build configuration list for PBXProject "IncomeApp" */ = {
+		8836A3022DFB3C6D00BFBDF7 /* Build configuration list for PBXProject "Income App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8836A3262DFB3C6E00BFBDF7 /* Debug */,
@@ -522,7 +522,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8836A3282DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "IncomeApp" */ = {
+		8836A3282DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "Income App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8836A3292DFB3C6E00BFBDF7 /* Debug */,
@@ -531,7 +531,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8836A32B2DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "IncomeAppTests" */ = {
+		8836A32B2DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "Income AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8836A32C2DFB3C6E00BFBDF7 /* Debug */,
@@ -540,7 +540,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8836A32E2DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "IncomeAppUITests" */ = {
+		8836A32E2DFB3C6E00BFBDF7 /* Build configuration list for PBXNativeTarget "Income AppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8836A32F2DFB3C6E00BFBDF7 /* Debug */,

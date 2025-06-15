@@ -6,32 +6,40 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Transaction: Identifiable, Hashable {
+struct Transaction: Identifiable {
     
     let id = UUID()
-    let title : String
-    let type : TransactionType
-    let amount : Double
-    let date : Date
-    var displayDate : String {
+    let title: String
+    let type: TransactionType
+    let amount: Double
+    let date: Date
+    
+    var displayDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         return dateFormatter.string(from: date)
     }
     
-    var displayAmount : String {
+    func display(currency: Currency) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
-        numberFormatter.maximumFractionDigits = 2
-        return numberFormatter.string(from: amount as NSNumber) ?? "₹0.00"
+        numberFormatter.locale = currency.locale
+        return numberFormatter.string(from: amount as NSNumber) ?? ""
     }
+    
 }
 
-//extension Transaction: Hashable {
-//    
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(id)
-//    }
-//}
-//
+extension Transaction: Hashable {
+    
+    static func == (lhs: Transaction, rhs: Transaction) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+}

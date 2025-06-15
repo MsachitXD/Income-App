@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct Income_AppApp: App {
+    
+
     var body: some Scene {
         WindowGroup {
             HomeView()
